@@ -1,0 +1,119 @@
+grid_size: [23, 23]
+
+military_zones: []
+
+buildings:
+# 4 buildings per block, arranged as 2x2 icons at the 4 interior corners:
+#   TL [ry*10+4, cx*10+4], TR [ry*10+4, cx*10+7],
+#   BL [ry*10+7, cx*10+4], BR [ry*10+7, cx*10+7]  (size [2,2] each)
+# block_id = ry*2 + cx + 1
+# --- Block 1 (cx=0, ry=0) ---
+- {block: 1, height: 20, position: [4, 4], size: [2, 2], type: Office}
+- {block: 1, height: 20, position: [4, 7], size: [2, 2], type: School}
+- {block: 1, height: 20, position: [7, 4], size: [2, 2], type: Store}
+- {block: 1, height: 20, position: [7, 7], size: [2, 2], type: Gas Station}
+# --- Block 2 (cx=1, ry=0) ---
+- {block: 2, height: 20, position: [4, 14], size: [2, 2], type: House}
+- {block: 2, height: 20, position: [4, 17], size: [2, 2], type: Store}
+- {block: 2, height: 20, position: [7, 14], size: [2, 2], type: Office}
+- {block: 2, height: 20, position: [7, 17], size: [2, 2], type: Garage}
+# --- Block 3 (cx=0, ry=1) ---
+- {block: 3, height: 20, position: [14, 4], size: [2, 2], type: Garage}
+- {block: 3, height: 20, position: [14, 7], size: [2, 2], type: Office}
+- {block: 3, height: 20, position: [17, 4], size: [2, 2], type: Store}
+- {block: 3, height: 20, position: [17, 7], size: [2, 2], type: House}
+# --- Block 4 (cx=1, ry=1) ---
+- {block: 4, height: 20, position: [14, 14], size: [2, 2], type: House}
+- {block: 4, height: 20, position: [14, 17], size: [2, 2], type: Gas Station}
+- {block: 4, height: 20, position: [17, 14], size: [2, 2], type: Office}
+- {block: 4, height: 20, position: [17, 17], size: [2, 2], type: Store}
+
+streets:
+# 3 vertical traffic streets (cols 0-2, 10-12, 20-22)
+- directions: 2
+  length: 23
+  orientation: vertical
+  position: [0, 0]
+  type: Traffic Street
+  width: 3
+- directions: 2
+  length: 23
+  orientation: vertical
+  position: [0, 10]
+  type: Traffic Street
+  width: 3
+- directions: 2
+  length: 23
+  orientation: vertical
+  position: [0, 20]
+  type: Traffic Street
+  width: 3
+# 3 horizontal traffic streets (rows 0-2, 10-12, 20-22)
+- directions: 2
+  length: 23
+  orientation: horizontal
+  position: [0, 0]
+  type: Traffic Street
+  width: 3
+- directions: 2
+  length: 23
+  orientation: horizontal
+  position: [10, 0]
+  type: Traffic Street
+  width: 3
+- directions: 2
+  length: 23
+  orientation: horizontal
+  position: [20, 0]
+  type: Traffic Street
+  width: 3
+# 4 horizontal walking streets (rows 3, 9, 13, 19), each spanning cols 3-22 (length 20, start col 3)
+- directions: 2
+  length: 20
+  orientation: horizontal
+  position: [3, 3]
+  type: Walking Street
+  width: 1
+- directions: 2
+  length: 20
+  orientation: horizontal
+  position: [9, 3]
+  type: Walking Street
+  width: 1
+- directions: 2
+  length: 20
+  orientation: horizontal
+  position: [13, 3]
+  type: Walking Street
+  width: 1
+- directions: 2
+  length: 20
+  orientation: horizontal
+  position: [19, 3]
+  type: Walking Street
+  width: 1
+# 4 vertical walking streets (cols 3, 9, 13, 19), each spanning rows 3-22 (length 20, start row 3)
+- directions: 2
+  length: 20
+  orientation: vertical
+  position: [3, 3]
+  type: Walking Street
+  width: 1
+- directions: 2
+  length: 20
+  orientation: vertical
+  position: [3, 9]
+  type: Walking Street
+  width: 1
+- directions: 2
+  length: 20
+  orientation: vertical
+  position: [3, 13]
+  type: Walking Street
+  width: 1
+- directions: 2
+  length: 20
+  orientation: vertical
+  position: [3, 19]
+  type: Walking Street
+  width: 1

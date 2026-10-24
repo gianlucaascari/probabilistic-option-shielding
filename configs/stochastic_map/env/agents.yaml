@@ -1,0 +1,52 @@
+agents:
+- class: Hierarchical_car
+  id: 1
+  size: 2
+  gplanner: A*vg
+  concepts:
+    type: Car
+    priority: 1
+  hierarchical_task:
+    start: [20, 12]   # bottom-middle intersection
+    goal:  [0, 12]    # top-middle intersection
+
+# Three stationary pedestrians on the upper half of the middle vertical traffic street
+# at row 3 (pedestrian crossing). Cols 10, 11, 12 fully block the middle street:
+# col 12 blocks the UP option exiting (11,11) (exits at col_center + 1 = 12);
+# col 10 blocks the symmetric col_center - 1 = 10 lane; col 11 blocks the center.
+- class: Pedestrian
+  id: 3
+  size: 1
+  gplanner: A*
+  concepts:
+    type: Pedestrian
+    priority: 0
+  hierarchical_task:
+    start: [3, 12]
+    goal:  [3, 12]
+    update_goals: True
+    reverse_goal: True
+- class: Pedestrian
+  id: 4
+  size: 1
+  gplanner: A*
+  concepts:
+    type: Pedestrian
+    priority: 0
+  hierarchical_task:
+    start: [3, 10]
+    goal:  [3, 10]
+    update_goals: True
+    reverse_goal: True
+- class: Pedestrian
+  id: 5
+  size: 1
+  gplanner: A*
+  concepts:
+    type: Pedestrian
+    priority: 0
+  hierarchical_task:
+    start: [3, 11]
+    goal:  [3, 11]
+    update_goals: True
+    reverse_goal: True

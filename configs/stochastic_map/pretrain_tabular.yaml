@@ -1,0 +1,15 @@
+# Pretraining of checkpoints/stochastic_map/tabular_critic.npy (Appendix D).
+env: env.yaml
+shield: env/shield.pl
+dataset: data/stochastic_map_uniform.pkl   # shared with pretrain_neural.yaml
+collect:
+  steps: 100000
+  exploration: uniform      # options drawn uniformly at random
+fit:
+  critic: tabular
+  table_shape: [23, 23, 2]  # rows, cols, school_time
+  alpha: 0.1
+  max_passes: 10000
+  tolerance: 1.0e-4         # stop when no entry changes more than this in a pass
+  plateau: {patience: 50, factor: 0.5, min_alpha: 1.0e-5}
+  seed: 0                   # shuffling order

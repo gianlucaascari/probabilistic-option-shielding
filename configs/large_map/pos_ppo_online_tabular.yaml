@@ -1,0 +1,21 @@
+# POS-PPO Online (tabular critic) on the Large Map (Appendix D).
+algorithm: POS-PPO
+env: env.yaml
+shield: env/shield.pl
+total_timesteps: 500000
+hyperparameters:
+  num_options: 4
+  gamma: 0.995
+  learning_rate: 1.0e-4
+  clip_range: 0.15
+  vf_coef: 0.5
+  ent_coef: 0.01
+  n_epochs: 8
+  n_steps: 512            # options per rollout
+  batch_size: 128
+  stats_window_size: 100
+  # POS: tabular critic learned online
+  critic: tabular
+  table_shape: [43, 43, 2]   # rows, cols, school_time
+  tabular_alpha: 0.99     # TD step size
+  alpha: 0.5             # weight of the safety loss

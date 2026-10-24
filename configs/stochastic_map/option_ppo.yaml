@@ -1,0 +1,14 @@
+# OptionPPO on the Stochastic Map (Figure 4).
+algorithm: OptionPPO
+env: env.yaml
+total_timesteps: 500000
+hyperparameters:
+  num_options: 4
+  learning_rate: 1.0e-4
+  clip_range: 0.15
+  vf_coef: 0.5
+  ent_coef: 0.01
+  n_epochs: 8
+  n_steps: 128            # options per rollout
+  batch_size: 32
+  stats_window_size: 100

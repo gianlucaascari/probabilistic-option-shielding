@@ -1,0 +1,25 @@
+# POS-PPO Online (neural critic) on the Stochastic Map (Figure 4 and Appendix D).
+algorithm: POS-PPO
+env: env.yaml
+shield: env/shield.pl
+total_timesteps: 500000
+hyperparameters:
+  num_options: 4
+  learning_rate: 1.0e-4
+  clip_range: 0.15
+  vf_coef: 0.5
+  ent_coef: 0.01
+  n_epochs: 8
+  n_steps: 128            # options per rollout
+  batch_size: 32
+  stats_window_size: 100
+  # POS: neural critic learned online
+  critic: neural
+  hidden_sizes: [32]
+  output_power: 2       # P(safe|s,o) = sigmoid(z)^k
+  critic_lr: 2.0e-3
+  critic_grad_steps: 8      # per option decision
+  critic_batch_size: 32
+  critic_buffer_size: 500000
+  polyak_tau: 0.005
+  alpha: 0.5             # weight of the safety loss

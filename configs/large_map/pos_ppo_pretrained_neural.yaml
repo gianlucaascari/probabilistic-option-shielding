@@ -1,0 +1,19 @@
+# POS-PPO Pretrained (neural critic) on the Large Map (Figure 3 and Appendix D).
+algorithm: POS-PPO
+env: env.yaml
+total_timesteps: 500000
+hyperparameters:
+  num_options: 4
+  gamma: 0.995
+  learning_rate: 1.0e-4
+  clip_range: 0.15
+  vf_coef: 0.5
+  ent_coef: 0.01
+  n_epochs: 8
+  n_steps: 512            # options per rollout
+  batch_size: 128
+  stats_window_size: 100
+  # POS: frozen pretrained neural critic (architecture read from its .json)
+  critic: neural
+  critic_path: ../../checkpoints/large_map/neural_critic.pt
+  alpha: 0.5             # weight of the safety loss

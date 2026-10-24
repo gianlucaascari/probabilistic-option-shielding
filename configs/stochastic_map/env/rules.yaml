@@ -1,0 +1,10 @@
+Rules:
+  Sim:
+  Task:
+    - name: Don't collide with other agents
+      description: you should not collide with other agents
+      immediate: true
+      dead: true
+      reward: 0
+      formula: |
+        Not(Collided(entity))

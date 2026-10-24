@@ -1,0 +1,30 @@
+EntityTypes:
+  - Entity
+
+Predicates:
+  - Collided:
+      arity: 1
+      method: Collided(Entity)
+      function: logicity.utils.pred_converter.z3.Collided
+      description: checks if the agent collided into another agent
+      semantic: false
+  - Stop:
+      arity: 1
+      method: Stop(Entity)
+      function: None
+      description: Stop action.
+  - Fast:
+      arity: 1
+      method: Fast(Entity)
+      function: None
+      description: Fast action.
+  - Normal:
+      arity: 1
+      method: Normal(Entity)
+      function: None
+      description: Normal action.
+  - Slow:
+      arity: 1
+      method: Slow(Entity)
+      function: None
+      description: Slow action.

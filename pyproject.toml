@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pos"
+version = "1.0.0"
+description = "Probabilistic Option Shielding: safe reinforcement learning over options"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.11,<3.12"
+# Versions used for the paper's experiments.
+dependencies = [
+    "torch==2.9.1",
+    "stable-baselines3==2.7.0",
+    "gymnasium==1.0.0",
+    "gym==0.23.1",
+    "shimmy==1.3.0",
+    "numpy==1.26.4",
+    "scipy==1.11.3",
+    "scikit-image==0.21.0",
+    "opencv-python==4.8.0.76",
+    "networkx==3.1",
+    "matplotlib==3.8.0",
+    "pandas==2.1.1",
+    "tensorboard==2.20.0",
+    "pyyaml==6.0.1",
+    "tqdm==4.66.1",
+    "z3-solver==4.12.4.0",
+    "problog==2.2.4",
+    "pyastar2d==1.0.6",
+    "kompyle @ git+https://github.com/ML-KULeuven/amc-grad@f04dc027dff0269e039ef0eac2630856616927f9",
+]
+
+[tool.setuptools.packages.find]
+include = ["pos*", "logicity*"]

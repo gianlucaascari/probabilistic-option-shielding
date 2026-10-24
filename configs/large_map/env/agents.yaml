@@ -1,0 +1,124 @@
+agents:
+- class: Hierarchical_car
+  id: 1
+  size: 2
+  gplanner: A*vg
+  concepts:
+    type: Car
+    priority: 1
+  hierarchical_task:
+    start: [30, 32]   # top edge of (row-street 30-32, col-street 10-12) intersection
+    goal: [0, 42]     # top-right corner of top-right intersection
+
+# 8 school pedestrians — one per traffic lane per road surrounding school block (cx=1, ry=2)
+# All stationary: start == goal, reverse_goal=True
+# Traffic direction convention: vertical streets → left half downward (col offset 0), right half upward (col offset 2)
+#                               horizontal streets → top half leftward (row offset 0), bottom half rightward (row offset 2)
+
+# Left road (cols 10-12): downward lane col=10, upward lane col=12
+- class: Pedestrian
+  id: 3
+  size: 1
+  gplanner: A*
+  concepts:
+    type: Pedestrian
+    priority: 0
+  hierarchical_task:
+    start: [29, 10]
+    goal: [29, 10]
+    update_goals: True
+    reverse_goal: True
+
+- class: Pedestrian
+  id: 4
+  size: 1
+  gplanner: A*
+  concepts:
+    type: Pedestrian
+    priority: 0
+  hierarchical_task:
+    start: [23, 12]
+    goal: [23, 12]
+    update_goals: True
+    reverse_goal: True
+
+# Right road (cols 20-22): downward lane col=20, upward lane col=22
+- class: Pedestrian
+  id: 5
+  size: 1
+  gplanner: A*
+  concepts:
+    type: Pedestrian
+    priority: 0
+  hierarchical_task:
+    start: [29, 20]
+    goal: [29, 20]
+    update_goals: True
+    reverse_goal: True
+
+- class: Pedestrian
+  id: 6
+  size: 1
+  gplanner: A*
+  concepts:
+    type: Pedestrian
+    priority: 0
+  hierarchical_task:
+    start: [23, 22]
+    goal: [23, 22]
+    update_goals: True
+    reverse_goal: True
+
+# Top road (rows 20-22): leftward lane row=20, rightward lane row=22
+- class: Pedestrian
+  id: 7
+  size: 1
+  gplanner: A*
+  concepts:
+    type: Pedestrian
+    priority: 0
+  hierarchical_task:
+    start: [20, 13]
+    goal: [20, 13]
+    update_goals: True
+    reverse_goal: True
+
+- class: Pedestrian
+  id: 8
+  size: 1
+  gplanner: A*
+  concepts:
+    type: Pedestrian
+    priority: 0
+  hierarchical_task:
+    start: [22, 19]
+    goal: [22, 19]
+    update_goals: True
+    reverse_goal: True
+
+# Bottom road (rows 30-32): leftward lane row=30, rightward lane row=32
+- class: Pedestrian
+  id: 9
+  size: 1
+  gplanner: A*
+  concepts:
+    type: Pedestrian
+    priority: 0
+  hierarchical_task:
+    start: [30, 13]
+    goal: [30, 13]
+    update_goals: True
+    reverse_goal: True
+
+- class: Pedestrian
+  id: 10
+  size: 1
+  gplanner: A*
+  concepts:
+    type: Pedestrian
+    priority: 0
+  hierarchical_task:
+    start: [32, 19]
+    goal: [32, 19]
+    update_goals: True
+    reverse_goal: True

@@ -1,0 +1,31 @@
+# Figures for the Large Map: mean over seeds, shaded standard error.
+# Reference line: optimal safe option route, 80 steps without school time and 120 with it,
+# averaged over the two: 0.5 * 0.995^79 + 0.5 * 0.995^119.
+reference: {y: 0.6119, label: "Optimal safe route (100 steps avg.)"}
+
+figures:
+  figure3:
+    arms:
+      ppo:                        {label: "PPO",           color: C1, linestyle: "--", zorder: 2}
+      ppo_pls:                    {label: "PPO-PLS",       color: C1, linestyle: "-",  zorder: 2}
+      option_ppo:                 {label: "OptionPPO",     color: C3, linestyle: "--", zorder: 3}
+      option_ppo_rs:              {label: "OptionPPO-RS",  color: C3, linestyle: "-.", zorder: 3}
+      option_ppo_lag:             {label: "OptionPPO-Lag", color: C3, linestyle: "-",  zorder: 3}
+      pos_ppo_online_neural:      {label: "POS-PPO Online (ours)",     color: C2, linestyle: "-", zorder: 4}
+      pos_ppo_pretrained_neural:  {label: "POS-PPO Pretrained (ours)", color: C0, linestyle: "-", zorder: 5}
+    legend_columns:
+      - [ppo, ppo_pls]
+      - [option_ppo, option_ppo_rs, option_ppo_lag]
+      - [pos_ppo_online_neural, pos_ppo_pretrained_neural, reference]
+    band_alpha: 0.12
+  figure10:
+    arms:
+      pos_ppo_online_tabular:     {label: "POS-PPO Online Tabular (ours)",     color: C2, linestyle: "--", zorder: 4}
+      pos_ppo_online_neural:      {label: "POS-PPO Online Neural (ours)",      color: C2, linestyle: "-",  zorder: 4}
+      pos_ppo_pretrained_tabular: {label: "POS-PPO Pretrained Tabular (ours)", color: C0, linestyle: "--", zorder: 5}
+      pos_ppo_pretrained_neural:  {label: "POS-PPO Pretrained Neural (ours)",  color: C0, linestyle: "-",  zorder: 5}
+    legend_columns:
+      - [pos_ppo_online_tabular, pos_ppo_online_neural]
+      - [pos_ppo_pretrained_tabular, pos_ppo_pretrained_neural]
+      - [reference]
+    band_alpha: 0.18

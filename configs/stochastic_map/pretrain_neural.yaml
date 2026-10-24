@@ -1,0 +1,17 @@
+# Pretraining of checkpoints/stochastic_map/neural_critic.pt (POS-PPO Pretrained, Figure 4).
+env: env.yaml
+shield: env/shield.pl
+dataset: data/stochastic_map_uniform.pkl   # shared with pretrain_tabular.yaml
+collect:
+  steps: 100000
+  exploration: uniform      # options drawn uniformly at random
+fit:
+  critic: neural
+  hidden_sizes: [32]
+  output_power: 2
+  lr: 0.001
+  batch_size: 128
+  gradient_steps: 100000
+  polyak_tau: 0.005
+  seed: 0                   # network initialisation
+  sampling_seed: 42         # minibatch order

@@ -1,0 +1,20 @@
+# OptionPPO-Lag on the Stochastic Map (Figure 4).
+algorithm: OptionPPO-Lag
+env: env.yaml
+total_timesteps: 500000
+hyperparameters:
+  num_options: 4
+  learning_rate: 1.0e-4
+  clip_range: 0.15
+  vf_coef: 0.5
+  ent_coef: 0.01
+  n_epochs: 8
+  n_steps: 128            # options per rollout
+  batch_size: 32
+  stats_window_size: 100
+  # Lagrangian (Table 5)
+  cost_limit: 0.02
+  lambda_lr: 0.05
+  lambda_init: 0.0
+  lambda_max: 100.0
+  cost_net_arch: [64, 64]

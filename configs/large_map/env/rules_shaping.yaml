@@ -1,0 +1,18 @@
+# OptionPPO-RS: both safety rules carry a -0.75 reward (selected in Table 4).
+Rules:
+  Sim:
+  Task:
+    - name: Don't collide with other agents
+      description: you should not collide with other agents
+      immediate: true
+      dead: true
+      reward: -0.75
+      formula: |
+        Not(Collided(entity))
+    - name: Don't enter military zone
+      description: agent dies immediately upon entering a military zone cell
+      immediate: true
+      dead: true
+      reward: -0.75
+      formula: |
+        Not(InMilitaryZone(entity))
